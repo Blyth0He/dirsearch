@@ -5,8 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+run: echo "TAGGED_IMAGE=${{ vars.IMAGE_BASE }}:$(date +%s)" >> $GITHUB_ENV
 env:
-  TAGGED_IMAGE: ${{ vars.IMAGE_BASE }}:$(date +%s)
   LATEST_IMAGE: ${{ vars.IMAGE_BASE }}:latest
 jobs:
 
