@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
-  TAGGED_IMAGE: ${{ vars.IMAGE_BASE }}:${{ github.ref_name }}
+  TAGGED_IMAGE: ${{ vars.IMAGE_BASE }}:$(date +%s)
   LATEST_IMAGE: ${{ vars.IMAGE_BASE }}:latest
 jobs:
 
