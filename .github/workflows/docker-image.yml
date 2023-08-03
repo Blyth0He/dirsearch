@@ -6,6 +6,7 @@ on:
   pull_request:
     branches: [ "master" ]
 env:
+  TAGGED_IMAGE: ${{ vars.IMAGE_BASE }}:${{ steps.date.outputs.date }}
   LATEST_IMAGE: ${{ vars.IMAGE_BASE }}:latest
 jobs:
 
@@ -26,7 +27,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build test image
-      run: echo "TAGGED_IMAGE=${{ vars.IMAGE_BASE }}:$(date +%s)" >> $GITHUB_ENV
       uses: docker/build-push-action@v4
       with:
         context: .
