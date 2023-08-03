@@ -2,8 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    tags:
-      - "v*.*.*"
+    branches: [ "master" ]
 env:
   TAGGED_IMAGE: ${{ vars.IMAGE_BASE }}:${{ github.ref_name }}
   LATEST_IMAGE: ${{ vars.IMAGE_BASE }}:latest
